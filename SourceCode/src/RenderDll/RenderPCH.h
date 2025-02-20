@@ -81,8 +81,6 @@ typedef unsigned char BYTE;
 #define USE_NEWPOOL
 #include <CryMemoryManager.h>
 
-#include "CrtOverrides.h"
-
 void CRTFreeData(void *pData);
 void CRTDeleteArray(void *pData);
 
