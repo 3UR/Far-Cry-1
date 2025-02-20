@@ -1057,39 +1057,6 @@ char *CShader::mfPreprCheckConditions(char *buf, const char *nameFile)
       }
     }
     else
-    if (!stricmp(ni, "DIRECT3D") || !stricmp(ni, "D3D"))
-    {
-#if defined (DIRECT3D8) || defined (DIRECT3D9) || defined (XBOX)
-      nPos = mfRemoveScript_ifdef(posStart, posEnd, false, nPos, buf, nameFile);
-      bAccept = true;
-#else
-      nPos = mfRemoveScript_ifdef(posStart, posEnd, true, nPos, buf, nameFile);
-      bAccept = false;
-#endif
-    }
-    else
-    if (!stricmp(ni, "DIRECT3D8") || !stricmp(ni, "D3D8"))
-    {
-#if defined (DIRECT3D8)
-      nPos = mfRemoveScript_ifdef(posStart, posEnd, false, nPos, buf, nameFile);
-      bAccept = true;
-#else
-      nPos = mfRemoveScript_ifdef(posStart, posEnd, true, nPos, buf, nameFile);
-      bAccept = false;
-#endif
-    }
-    else
-    if (!stricmp(ni, "DIRECT3D9") || !stricmp(ni, "D3D9"))
-    {
-#if defined (DIRECT3D9)
-      nPos = mfRemoveScript_ifdef(posStart, posEnd, false, nPos, buf, nameFile);
-      bAccept = true;
-#else
-      nPos = mfRemoveScript_ifdef(posStart, posEnd, true, nPos, buf, nameFile);
-      bAccept = false;
-#endif
-    }
-    else
     if (!stricmp(ni, "XBOX"))
     {
 #if defined (XBOX)

@@ -234,7 +234,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\CryCommon;C:\DXSDK\Include"
+				AdditionalIncludeDirectories="..\CryCommon"
 				PreprocessorDefinitions="WIN64;_DEBUG;_WINDOWS;_USRDLL;CRYINPUT_EXPORTS"
 				BasicRuntimeChecks="0"
 				RuntimeLibrary="1"
@@ -305,7 +305,7 @@
 				GlobalOptimizations="TRUE"
 				InlineFunctionExpansion="2"
 				EnableIntrinsicFunctions="TRUE"
-				AdditionalIncludeDirectories="..\CryCommon;C:\DXSDK\Include"
+				AdditionalIncludeDirectories="..\CryCommon"
 				PreprocessorDefinitions="_RELEASE;NDEBUG;WIN64;WIN32;_AMD64_;_WINDOWS;_USRDLL;CRYINPUT_EXPORTS"
 				BasicRuntimeChecks="0"
 				RuntimeLibrary="2"

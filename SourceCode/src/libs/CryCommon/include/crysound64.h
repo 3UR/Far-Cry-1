@@ -109,9 +109,6 @@ enum CS_ERRORS
     [DESCRIPTION]
     These output types are used with CS_SetOutput, to choose which output driver to use.
 
-    CS_OUTPUT_DSOUND will not support hardware 3d acceleration if the sound card driver
-    does not support DirectX 6 Voice Manager Extensions.
-
     CS_OUTPUT_WINMM is recommended for NT and CE.
 
     [SEE_ALSO]
@@ -123,7 +120,6 @@ enum CS_OUTPUTTYPES
 {
     CS_OUTPUT_NOSOUND,    /* NoSound driver, all calls to this succeed but do nothing. */
     CS_OUTPUT_WINMM,      /* Windows Multimedia driver. */
-    CS_OUTPUT_DSOUND,     /* DirectSound driver.  You need this to get EAX2 or EAX3 support, or FX api support. */
     CS_OUTPUT_A3D,        /* A3D driver. */
 
     CS_OUTPUT_OSS,        /* Linux/Unix OSS (Open Sound System) driver, i.e. the kernel sound drivers. */
@@ -617,7 +613,7 @@ enum CS_FX_MODES
 [
     [DESCRIPTION]
     These are speaker types defined for use with the CS_SetSpeakerMode command.
-    Note - Only reliably works with CS_OUTPUT_DSOUND or CS_OUTPUT_XBOX output modes.  Other output modes will only
+    Note - Only reliably works with CS_OUTPUT_XBOX output modes.  Other output modes will only
     interpret CS_SPEAKERMODE_MONO and set everything else to be stereo.
 
     Using either DolbyDigital or DTS will use whatever 5.1 digital mode is available if destination hardware is unsure.

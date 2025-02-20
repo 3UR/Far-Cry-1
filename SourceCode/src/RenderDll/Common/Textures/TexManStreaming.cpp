@@ -1634,11 +1634,7 @@ bool CTexMan::CreateCacheFile()
   STexCacheMipHeader mh;
   bool bValid = true;
 
-#ifdef DIRECT3D8
-  CResFile *rf = new CResFile("Textures\\TexturesD3D8.cache", eFSD_name);
-#elif DIRECT3D9
-  CResFile *rf = new CResFile("Textures\\TexturesD3D9.cache", eFSD_name);
-#elif OPENGL
+#ifdef OPENGL
   CResFile *rf = new CResFile("Textures\\TexturesOGL.cache", eFSD_name);
 #else
   CResFile *rf = new CResFile("Textures\\Textures.cache", eFSD_name);

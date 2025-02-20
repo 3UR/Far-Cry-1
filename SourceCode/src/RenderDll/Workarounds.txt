@@ -2,7 +2,7 @@ ATI bad things in OpenGL:
 1. GL_EXT_texture_rectangle extension doesn't work (though driver reports about supporting it,
    when we try to enable it we get error message invalid enum)
    --- WorkAround solution in FarCry: no solution currently. We have to disable playing of video files on ATI in OpenGL
-2. OpenGL driver is much slower then Direct3D 
+2. OpenGL driver is much slower then Direct3D
    --- WorkAround solution in FarCry: Use Direct3D renderer only on ATI video cards
 3. Fog doesn't work when we use programmable pipeline
    --- WorkAround solution in FarCry: no solution currently (Using Direct3D renderer only on ATI video cards)

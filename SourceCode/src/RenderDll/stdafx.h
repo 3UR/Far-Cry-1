@@ -55,8 +55,6 @@ typedef unsigned char BYTE;
 #define USE_NEWPOOL
 #include <CryMemoryManager.h>
 
-#include "CrtOverrides.h"
-
 #if defined _DEBUG && defined OPENGL
 #define DEBUGALLOC
 #endif

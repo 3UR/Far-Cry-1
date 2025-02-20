@@ -287,14 +287,6 @@ CSoundSystem::CSoundSystem(ISystem* pSystem, HWND hWnd) : CSoundSystemCommon(pSy
 
 	m_pILog->Log("------------------------------------------CRYSOUND VERSION=%f\n",CS_GetVersion());
 
-	//configure CS's stability under windows
-	//CS_SetBufferSize(CS_BUFFERSIZE);
-
-	//init CS
-	//CS_SetOutput(CS_OUTPUT_DSOUND);	
-	//CS_SetDriver(0);
-	//CS_SetMixer(CS_MIXER_QUALITY_AUTODETECT);
-
 #if 0//defined(WIN64) || defined(CS_VERSION_3_63)
 
 	//CS_DSP_SetActive(CS_DSP_GetClearUnit(), FALSE);

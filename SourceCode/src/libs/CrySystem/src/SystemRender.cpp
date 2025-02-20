@@ -51,7 +51,7 @@ int CSystem::AutoDetectRenderer(char *Vendor, char *Device)
   HRESULT hr;
   LPDIRECTDRAW7 pDD;
   HINSTANCE hDDInstance;
-  int nRenderer = R_DX9_RENDERER;
+  int nRenderer = R_GL_RENDERER;
 
   // Dynamically load the DLL.
   typedef HRESULT (WINAPI *DD_CREATE_FUNC)(GUID* lpGUID, void* lplpDD, REFIID iid,IUnknown* pUnkOuter);
@@ -110,167 +110,6 @@ int CSystem::AutoDetectRenderer(char *Vendor, char *Device)
       {
         case 0x0010: strcpy(Device, "Kyro I/II"); break;
         default:     strcpy(Device, "Unknown");
-      }
-  	  break;
-
-    case 0x1002:
-      strcpy(Vendor, "ATI");
-      nRenderer = R_DX9_RENDERER;
-      switch (DeviceIdentifier.dwDeviceId)
-      {
-        case 0x4158: strcpy(Device, "Mach 32"); bUnsupported = true; break;
-        case 0x4337: strcpy(Device, "IGP 340M"); bUnsupported = true; break;
-        case 0x4354: strcpy(Device, "Mach 64");  bUnsupported = true; break;
-        case 0x4358: strcpy(Device, "Mach 64"); bUnsupported = true; break;
-        case 0x4554: strcpy(Device, "Mach 64"); bUnsupported = true; break;
-        case 0x4654: strcpy(Device, "Mach 64"); bUnsupported = true; break;
-        case 0x4742: strcpy(Device, "Rage Pro"); bUnsupported = true; break;
-        case 0x4744: strcpy(Device, "Rage Pro"); bUnsupported = true; break;
-        case 0x4747: strcpy(Device, "Rage Pro"); bUnsupported = true; break;
-        case 0x4749: strcpy(Device, "Rage Pro"); bUnsupported = true; break;
-        case 0x474c: strcpy(Device, "Rage XC"); bUnsupported = true; break;
-        case 0x474d: strcpy(Device, "Rage XL"); bUnsupported = true; break;
-        case 0x474e: strcpy(Device, "Rage XC"); bUnsupported = true; break;
-        case 0x474f: strcpy(Device, "Rage XL"); bUnsupported = true; break;
-        case 0x4750: strcpy(Device, "Rage Pro"); bUnsupported = true; break;
-        case 0x4751: strcpy(Device, "Rage Pro"); bUnsupported = true; break;
-        case 0x4752: strcpy(Device, "Rage XL"); bUnsupported = true; break;
-        case 0x4753: strcpy(Device, "Rage XC"); bUnsupported = true; break;
-        case 0x4754: strcpy(Device, "Rage II"); bUnsupported = true; break;
-        case 0x4755: strcpy(Device, "Rage II+"); bUnsupported = true; break;
-        case 0x4756: strcpy(Device, "Rage IIC"); bUnsupported = true; break;
-        case 0x4757: strcpy(Device, "Rage IIC"); bUnsupported = true; break;
-        case 0x4758: strcpy(Device, "Mach 64"); bUnsupported = true; break;
-        case 0x4759: strcpy(Device, "Rage IIC"); bUnsupported = true; break;
-        case 0x475a: strcpy(Device, "Rage IIC"); bUnsupported = true; break;
-        case 0x4c42: strcpy(Device, "Rage LT Pro"); bUnsupported = true; break;
-        case 0x4c44: strcpy(Device, "Rage LT Pro"); bUnsupported = true; break;
-        case 0x4c47: strcpy(Device, "Rage LT"); bUnsupported = true; break;
-        case 0x4c49: strcpy(Device, "Rage LT Pro"); bUnsupported = true; break;
-        case 0x4c50: strcpy(Device, "Rage LT Pro"); bUnsupported = true; break;
-        case 0x4c51: strcpy(Device, "Rage LT Pro"); bUnsupported = true; break;
-        case 0x4c45: strcpy(Device, "Rage Mobility"); bUnsupported = true; break;
-        case 0x4c46: strcpy(Device, "Rage Mobility"); bUnsupported = true; break;
-        case 0x4c4d: strcpy(Device, "Rage Mobility"); bUnsupported = true; break;
-        case 0x4c4e: strcpy(Device, "Rage Mobility"); bUnsupported = true; break;
-        case 0x4c52: strcpy(Device, "Rage Mobility"); bUnsupported = true; break;
-        case 0x4c53: strcpy(Device, "Rage Mobility"); bUnsupported = true; break;
-        case 0x4c54: strcpy(Device, "Rage Mobility"); bUnsupported = true; break;
-        case 0x4d46: strcpy(Device, "Rage Mobility 128"); bUnsupported = true; break;
-        case 0x4d4c: strcpy(Device, "Rage Mobility 128"); bUnsupported = true; break;
-        case 0x5041: strcpy(Device, "Rage 128 Pro PCI"); bUnsupported = true; break;
-        case 0x5042: strcpy(Device, "Rage 128 Pro AGP2X"); bUnsupported = true; break;
-        case 0x5043: strcpy(Device, "Rage 128 Pro AGP4X"); bUnsupported = true; break;
-        case 0x5044: strcpy(Device, "Rage 128 Pro PCI TMDS"); bUnsupported = true; break;
-        case 0x5045: strcpy(Device, "Rage 128 Pro AGP2X TMDS"); bUnsupported = true; break;
-        case 0x5046: strcpy(Device, "Rage 128 Pro AGP4X TMDS"); bUnsupported = true; break;
-        case 0x5047: strcpy(Device, "Rage 128 Pro PCI"); bUnsupported = true; break;
-        case 0x5048: strcpy(Device, "Rage 128 Pro AGP2X"); bUnsupported = true; break;
-        case 0x5049: strcpy(Device, "Rage 128 Pro AGP4X"); bUnsupported = true; break;
-        case 0x504a: strcpy(Device, "Rage 128 Pro PCI TMDS"); bUnsupported = true; break;
-        case 0x504b: strcpy(Device, "Rage 128 Pro AGP2X TMDS"); bUnsupported = true; break;
-        case 0x504c: strcpy(Device, "Rage 128 Pro AGP4X TMDS"); bUnsupported = true; break;
-        case 0x504d: strcpy(Device, "Rage 128 Pro PCI"); bUnsupported = true; break;
-        case 0x504e: strcpy(Device, "Rage 128 Pro AGP2X"); bUnsupported = true; break;
-        case 0x504f: strcpy(Device, "Rage 128 Pro AGP4X"); bUnsupported = true; break;
-        case 0x5050: strcpy(Device, "Rage 128 Pro PCI TMDS"); bUnsupported = true; break;
-        case 0x5051: strcpy(Device, "Rage 128 Pro AGP2X TMDS"); bUnsupported = true; break;
-        case 0x5052: strcpy(Device, "Rage 128 Pro AGP4X TMDS"); bUnsupported = true; break;
-        case 0x5053: strcpy(Device, "Rage 128 Pro PCI"); bUnsupported = true; break;
-        case 0x5054: strcpy(Device, "Rage 128 Pro AGP2X"); bUnsupported = true; break;
-        case 0x5055: strcpy(Device, "Rage 128 Pro AGP4X"); bUnsupported = true; break;
-        case 0x5056: strcpy(Device, "Rage 128 Pro PCI TMDS"); bUnsupported = true; break;
-        case 0x5057: strcpy(Device, "Rage 128 Pro AGP2X TMDS"); bUnsupported = true; break;
-        case 0x5058: strcpy(Device, "Rage 128 Pro AGP4X TMDS"); bUnsupported = true; break;
-        case 0x5245: strcpy(Device, "Rage 128 GL PCI"); bUnsupported = true; break;
-        case 0x5246: strcpy(Device, "Rage 128 GL AGP"); bUnsupported = true; break;
-        case 0x5247: strcpy(Device, "Rage 128"); bUnsupported = true; break;
-        case 0x524b: strcpy(Device, "Rage 128 VR PCI"); bUnsupported = true; break;
-        case 0x524c: strcpy(Device, "Rage 128 VR AGP"); bUnsupported = true; break;
-        case 0x5345: strcpy(Device, "Rage 128 4X PCI"); bUnsupported = true; break;
-        case 0x5346: strcpy(Device, "Rage 128 4X AGP2X"); bUnsupported = true; break;
-        case 0x5347: strcpy(Device, "Rage 128 4X AGP4X"); bUnsupported = true; break;
-        case 0x5348: strcpy(Device, "Rage 128 4X"); bUnsupported = true; break;
-        case 0x534b: strcpy(Device, "Rage 128 4X PCI"); bUnsupported = true; break;
-        case 0x534c: strcpy(Device, "Rage 128 4X AGP2X"); bUnsupported = true; break;
-        case 0x534d: strcpy(Device, "Rage 128 4X AGP4X"); bUnsupported = true; break;
-        case 0x534e: strcpy(Device, "Rage 128 4X"); bUnsupported = true; break;
-        case 0x5354: strcpy(Device, "Mach 64"); bUnsupported = true; break;
-        case 0x5446: strcpy(Device, "Rage 128 Pro Ultra GL AGP"); bUnsupported = true; break;
-        case 0x544c: strcpy(Device, "Rage 128 Pro Ultra VR AGP"); bUnsupported = true; break;
-        case 0x5452: strcpy(Device, "Rage 128 Pro Ultra4XL VR-R AGP"); bUnsupported = true; break;
-        case 0x5453: strcpy(Device, "Rage 128 Pro"); bUnsupported = true; break;
-        case 0x5454: strcpy(Device, "Rage 128 Pro"); bUnsupported = true; break;
-        case 0x5455: strcpy(Device, "Rage 128 Pro"); bUnsupported = true; break;
-        case 0x5654: strcpy(Device, "Mach 64"); bUnsupported = true; break;
-        case 0x5655: strcpy(Device, "Mach 64"); bUnsupported = true; break;
-        case 0x5656: strcpy(Device, "Mach 64"); bUnsupported = true; break;
-        case 0x4c57: strcpy(Device, "Radeon Mobility 7500"); bUnsupported = true; break;
-        case 0x4c58: strcpy(Device, "Radeon Mobility 7500"); bUnsupported = true; break;
-        case 0x4c59: strcpy(Device, "Radeon Mobility VE"); bUnsupported = true; break;
-        case 0x4c5a: strcpy(Device, "Radeon Mobility VE"); bUnsupported = true; break;
-
-        case 0x4c64: strcpy(Device, "Radeon Mobility 9000");  break;
-        case 0x4c66: strcpy(Device, "Radeon Mobility 9000");  break;
-        case 0x4966: strcpy(Device, "Radeon 9000");  break;
-        case 0x496e: strcpy(Device, "Radeon 9000 - Secondary");  break;
-        case 0x514d: strcpy(Device, "Radeon 9100");  break;
-        case 0x5834: strcpy(Device, "Radeon 9100 IGP");  break;
-        case 0x4242: strcpy(Device, "Radeon 8500 DV");  break;
-        case 0x4152: strcpy(Device, "Radeon 9600");  break;
-        case 0x4172: strcpy(Device, "Radeon 9600 - Secondary");  break;
-        case 0x4164: strcpy(Device, "Radeon 9500 - Secondary");  break;
-        case 0x4144: strcpy(Device, "Radeon 9500");  break;
-        case 0x4e45: strcpy(Device, "Radeon 9500 Pro / 9700");  break;
-        case 0x4150: strcpy(Device, "Radeon 9600 Pro");  break;
-        case 0x4151: strcpy(Device, "Radeon 9600");  break;
-        case 0x4170: strcpy(Device, "Radeon 9600 Pro - Secondary");  break;
-        case 0x4171: strcpy(Device, "Radeon 9600 - Secondary");  break;
-        case 0x4e46: strcpy(Device, "Radeon 9600 TX");  break;
-        case 0x4e66: strcpy(Device, "Radeon 9600 TX - Secondary");  break;
-        case 0x4e44: strcpy(Device, "Radeon 9700 Pro");  break;
-        case 0x4e64: strcpy(Device, "Radeon 9700 Pro - Secondary");  break;
-        case 0x4e65: strcpy(Device, "Radeon 9500 Pro / 9700 - Secondary");  break;
-        case 0x4e49: strcpy(Device, "Radeon 9800");  break;
-        case 0x4e69: strcpy(Device, "Radeon 9800 - Secondary");  break;
-        case 0x4148: strcpy(Device, "Radeon 9800");  break;
-        case 0x4168: strcpy(Device, "Radeon 9800 - Secondary");  break;
-        case 0x4e48: strcpy(Device, "Radeon 9800 Pro");  break;
-        case 0x4e68: strcpy(Device, "Radeon 9800 Pro - Secondary");  break;
-        case 0x4e4a: strcpy(Device, "Radeon 9800 XT");  break;
-        case 0x4e6a: strcpy(Device, "Radeon 9800 XT - Secondary");  break;
-        case 0x5960: strcpy(Device, "Radeon 9200 Pro");  break;
-        case 0x5940: strcpy(Device, "Radeon 9200 Pro - Secondary");  break;
-        case 0x5961: strcpy(Device, "Radeon 9200");  break;
-        case 0x5941: strcpy(Device, "Radeon 9200 - Secondary");  break;
-        case 0x5964: strcpy(Device, "Radeon 9200SE");  break;
-        case 0x5144: strcpy(Device, "Radeon 7200");  break;
-        case 0x5145: strcpy(Device, "Radeon");  break;
-        case 0x5146: strcpy(Device, "Radeon");  break;
-        case 0x5147: strcpy(Device, "Radeon");  break;
-        case 0x5148: strcpy(Device, "Radeon FireGL");  break;
-        case 0x5157: strcpy(Device, "Radeon 7500");  break;
-        case 0x5159: strcpy(Device, "Radeon 7000 VE");  break;
-        case 0x515a: strcpy(Device, "Radeon VE");  break;
-        case 0x516c: strcpy(Device, "Radeon");  break;
-        case 0x514c: strcpy(Device, "Radeon 8500");  break;
-        case 0x514e: strcpy(Device, "Radeon 8500");  break;
-        case 0x514f: strcpy(Device, "Radeon 8500");  break;
-        case 0x4136: strcpy(Device, "IGP 320");  break;
-        case 0x4137: strcpy(Device, "IGP 340");  break;
-
-        case 0x4A49: strcpy(Device, "Radeon X800 Pro");  break;
-        case 0x4A4A: strcpy(Device, "Radeon X800 SE");  break;
-        case 0x4A4B: strcpy(Device, "Radeon X800");  break;
-        case 0x4A4C: strcpy(Device, "Radeon X800 Series");  break;
-        case 0x4A50: strcpy(Device, "Radeon X800 XT");  break;
-        case 0x4A69: strcpy(Device, "Radeon X800 Pro Secondary");  break;
-        case 0x4A6A: strcpy(Device, "Radeon X800 SE Secondary");  break;
-        case 0x4A6b: strcpy(Device, "Radeon X800 Secondary");  break;
-        case 0x4A6C: strcpy(Device, "Radeon X800 Series Secondary");  break;
-        case 0x4A70: strcpy(Device, "Radeon X800 XT Secondary");  break;
-
-        default: strcpy(Device, "Unknown");
       }
   	  break;
 
@@ -787,40 +626,78 @@ int CSystem::AutoDetectRenderer(char *Vendor, char *Device)
 void CSystem::CreateRendererVars()
 {
 	// load renderer settings from engine.ini
-	//m_rWidth = GetIConsole()->CreateVariable("r_Width", "800", VF_DUMPTODISK);
-	//m_rHeight = GetIConsole()->CreateVariable("r_Height", "600", VF_DUMPTODISK);
-	m_rWidth = GetIConsole()->CreateVariable("r_Width", "1024", VF_DUMPTODISK,
+	m_rWidth = GetIConsole()->CreateVariable(
+    "r_Width", 
+    "1024", 
+    VF_DUMPTODISK,
 		"Sets the display width, in pixels. Default is 1024.\n"
-		"Usage: r_Width [800/1024]");
-	m_rHeight = GetIConsole()->CreateVariable("r_Height", "768", VF_DUMPTODISK,
+		"Usage: r_Width [800/1024]"
+  );
+	m_rHeight = GetIConsole()->CreateVariable(
+    "r_Height",
+    "768", 
+    VF_DUMPTODISK,
 		"Sets the display height, in pixels. Default is 768.\n"
-		"Usage: r_Height [600/768]");
-	m_rColorBits = GetIConsole()->CreateVariable("r_ColorBits", "32", VF_DUMPTODISK,
+		"Usage: r_Height [600/768]"
+  );
+	m_rColorBits = GetIConsole()->CreateVariable(
+    "r_ColorBits", 
+    "32", 
+    VF_DUMPTODISK,
 		"Sets the color resolution, in bits per pixel. Default is 32.\n"
-		"Usage: r_ColorBits [32/24/16/8]");
-	m_rDepthBits = GetIConsole()->CreateVariable("r_DepthBits", "32", VF_DUMPTODISK);
-	m_rStencilBits = GetIConsole()->CreateVariable("r_StencilBits", "8", VF_DUMPTODISK);	
-	m_rDriver= GetIConsole()->CreateVariable("r_Driver", "Direct3D9", VF_DUMPTODISK,
-		"Sets the renderer driver. Default is 'Direct3D9'.\n"
-		"Usage: r_Driver Direct3D9");
+		"Usage: r_ColorBits [32/24/16/8]"
+  );
+	m_rDepthBits = GetIConsole()->CreateVariable(
+    "r_DepthBits", 
+    "32", 
+    VF_DUMPTODISK
+  );
+	m_rStencilBits = GetIConsole()->CreateVariable(
+    "r_StencilBits",
+    "8",
+    VF_DUMPTODISK
+  );	
+	m_rDriver= GetIConsole()->CreateVariable(
+    "r_Driver", 
+    "OpenGL", 
+    VF_DUMPTODISK,
+		"Sets the renderer driver. Default is 'OpenGL'.\n"
+		"Usage: r_Driver OpenGL"
+  );
 #ifdef _DEBUG
-	m_rFullscreen = GetIConsole()->CreateVariable("r_Fullscreen", "0", VF_DUMPTODISK,
+	m_rFullscreen = GetIConsole()->CreateVariable(
+    "r_Fullscreen",
+    "0",
+    VF_DUMPTODISK,
 		"Toggles fullscreen mode. Default is 1 (fullscreen).\n"
 		"Usage: r_Fullscreen [0/1]\n"
-		"In debug mode, the display is automatically set to windowed mode.");
-	m_rDisplayInfo = GetIConsole()->CreateVariable("r_DisplayInfo", "1", VF_DUMPTODISK,
+		"In debug mode, the display is automatically set to windowed mode."
+  );
+	m_rDisplayInfo = GetIConsole()->CreateVariable(
+    "r_DisplayInfo", 
+    "1", 
+    VF_DUMPTODISK,
 		"Toggles debugging information display. Default is 0 (off)."
 		"Usage: r_DisplayInfo [0/1]\n"
-		"In debug mode, the information is automatically displayed.");
+		"In debug mode, the information is automatically displayed."
+  );
 #else
-	m_rFullscreen = GetIConsole()->CreateVariable("r_Fullscreen", "1", VF_DUMPTODISK,
+	m_rFullscreen = GetIConsole()->CreateVariable(
+    "r_Fullscreen", 
+    "1", 
+    VF_DUMPTODISK,
 		"Toggles fullscreen mode. Default is 1 (fullscreen).\n"
 		"Usage: r_Fullscreen [0/1]\n"
-		"In debug mode, the display is automatically set to windowed mode.");
-	m_rDisplayInfo = GetIConsole()->CreateVariable("r_DisplayInfo", "0", VF_DUMPTODISK,
+		"In debug mode, the display is automatically set to windowed mode."
+  );
+	m_rDisplayInfo = GetIConsole()->CreateVariable(
+    "r_DisplayInfo", 
+    "0", 
+    VF_DUMPTODISK,
 		"Toggles debugging information display. Default is 0 (off)."
 		"Usage: r_DisplayInfo [0/1]\n"
-		"In debug mode, the information is automatically displayed.");
+		"In debug mode, the information is automatically displayed."
+  );
 #endif
 }
 

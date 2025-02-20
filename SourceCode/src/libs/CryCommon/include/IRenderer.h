@@ -138,10 +138,7 @@ template	<class T> class list2;
 #define R_WIREFRAME_MODE	2
 
 #define R_GL_RENDERER	0
-#define R_DX8_RENDERER	1
-#define R_DX9_RENDERER	2
 #define R_NULL_RENDERER	3
-#define R_CUBAGL_RENDERER	4
 
 //////////////////////////////////////////////////////////////////////
 // Render features
@@ -455,7 +452,7 @@ struct SVertexStream
   void *m_VData;      // pointer to buffer data
   UHWBuf m_VertBuf;   // HW buffer descriptor 
   int m_nItems;
-  bool m_bLocked;     // Used in Direct3D only
+  bool m_bLocked;
   bool m_bDynamic;
   int m_nBufOffset;
   struct SVertPool *m_pPool;

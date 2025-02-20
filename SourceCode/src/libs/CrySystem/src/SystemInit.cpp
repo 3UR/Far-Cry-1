@@ -87,11 +87,7 @@ extern HMODULE gDLLHandle;
 //////////////////////////////////////////////////////////////////////////
 bool CSystem::OpenRenderLibrary(const char *t_rend)
 {
-	#ifdef _XBOX
-		return OpenRenderLibrary(R_DX8_RENDERER);
-	#endif
-
-  int nRenderer = R_DX9_RENDERER;
+  int nRenderer = R_GL_RENDERER;
 #if defined(LINUX)
 	return OpenRenderLibrary(R_NULL_RENDERER);
 #else
@@ -114,12 +110,6 @@ bool CSystem::OpenRenderLibrary(const char *t_rend)
   {
     switch(nRenderer)
     {
-      case R_DX9_RENDERER:
-        GetILog()->LogToFile("System: Using Direct3D9 renderer...");
-    	  break;
-      case R_DX8_RENDERER:
-        GetILog()->LogToFile("System: Using Direct3D8 renderer...");
-    	  break;
       case R_GL_RENDERER:
         GetILog()->LogToFile("System: Using OpenGL renderer...");
     	  break;
@@ -136,12 +126,6 @@ bool CSystem::OpenRenderLibrary(const char *t_rend)
 	if (stricmp(t_rend, "OpenGL") == 0)
     return OpenRenderLibrary(R_GL_RENDERER);
   else
-	if (stricmp(t_rend, "Direct3D8") == 0)
-		return OpenRenderLibrary(R_DX8_RENDERER);
-  else
-  if (stricmp(t_rend, "Direct3D9") == 0)
-    return OpenRenderLibrary(R_DX9_RENDERER);
-  else
   if (stricmp(t_rend, "NULL") == 0)
     return OpenRenderLibrary(R_NULL_RENDERER);
 
@@ -155,10 +139,6 @@ bool CSystem::OpenRenderLibrary(const char *t_rend)
 bool CSystem::OpenRenderLibrary(int type)
 {
   SCryRenderInterface sp;
-
-#ifdef _XBOX
-  type = R_DX8_RENDERER;
-#endif
 #if defined(LINUX)
 	type = R_NULL_RENDERER;
 #endif
@@ -170,15 +150,12 @@ bool CSystem::OpenRenderLibrary(int type)
   sp.ipSystem = this;
   sp.ipTest_int = &test_int;
   sp.ipTimer = GetITimer();
-	sp.pIPhysicalWorld = m_pIPhysicalWorld;
+  sp.pIPhysicalWorld = m_pIPhysicalWorld;
 
 #ifndef _XBOX
-	char libname[128];
-	if (type == R_GL_RENDERER)
+  char libname[128];
+  if (type == R_GL_RENDERER)
     strcpy(libname, "XRenderOGL.dll");
-	else
-	if (type == R_DX8_RENDERER)
-		strcpy(libname, "XRenderD3D8.dll");
   else
   if (type == R_DX9_RENDERER)
     strcpy(libname, "XRenderD3D9.dll");

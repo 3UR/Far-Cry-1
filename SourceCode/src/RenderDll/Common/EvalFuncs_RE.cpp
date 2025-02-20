@@ -442,10 +442,6 @@ void SEvalFuncs_RE::FlareDeform(SDeform *df)
   rd->m_RP.m_FirstIndex = 0;
   rd->m_RP.m_RendNumIndices = 54;
   rd->m_RP.m_RendNumVerts = 16;
-
-#if defined (DIRECT3D8) || defined (DIRECT3D9)
-  rd->m_RP.m_CurVFormat = VERTEX_FORMAT_P3F_COL4UB_TEX2F;
-#endif
 }
 
 void SEvalFuncs_RE::BeamDeform(SDeform *df)
@@ -563,10 +559,6 @@ void SEvalFuncs_RE::BeamDeform(SDeform *df)
   delete [] vbDst;
   rd->m_RP.m_FirstVertex = 0;
   rd->m_RP.m_FirstIndex = 0;
-
-#if defined (DIRECT3D8) || defined (DIRECT3D9)
-  rd->m_RP.m_CurVFormat = VERTEX_FORMAT_P3F_COL4UB_TEX2F;
-#endif
 }
 
 void SEvalFuncs_RE::VerticalWaveDeform(SDeform *df)

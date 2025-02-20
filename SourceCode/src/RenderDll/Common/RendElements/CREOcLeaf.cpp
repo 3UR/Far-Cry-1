@@ -1092,9 +1092,6 @@ SLightIndicies *CREOcLeaf::mfGetIndiciesForLight(CDLight *pDLight)
     int nInds = li->m_pIndiciesAttenFrustr.Num();
     if (nInds)
     {
-#if defined (DIRECT3D8) || defined (DIRECT3D9)
-      gRenDev->UpdateIndexBuffer(&li->m_IndexBuffer, &li->m_pIndiciesAttenFrustr[0], nInds);
-#endif
       return li;
     }
     return NULL;
@@ -1104,9 +1101,6 @@ SLightIndicies *CREOcLeaf::mfGetIndiciesForLight(CDLight *pDLight)
     int nInds = li->m_pIndicies.Num();
     if (nInds)
     {
-#if defined (DIRECT3D8) || defined (DIRECT3D9)
-      gRenDev->UpdateIndexBuffer(&li->m_IndexBuffer, &li->m_pIndicies[0], nInds);
-#endif
       return li;
     }
     return NULL;
@@ -1162,10 +1156,6 @@ bool CREOcLeaf::mfCheckUpdate(int nVertFormat, int Flags)
 
   if (!lb->m_pVertexBuffer)
     return false;
-
-#if defined (DIRECT3D8) || defined (DIRECT3D9)
-  gRenDev->m_RP.m_CurVFormat = lb->m_pVertexBuffer->m_vertexformat;
-#endif
 
 #ifndef PIPE_USE_INSTANCING
   if((Flags & SHPF_LMTC) && gRenDev->m_RP.m_pCurObject->m_pLMTCBufferO)

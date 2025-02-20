@@ -301,57 +301,6 @@ struct STWarpZone
 
 //==================================================================
 
-#ifdef DIRECT3D9
-#include <d3d9.h>
-#endif
-
-#if defined (DIRECT3D8) || defined (DIRECT3D9)
-template <class IndexType> class DynamicIB;
-
-struct SD3DFixedVShader
-{
-#ifdef DIRECT3D8
-  TArray<DWORD> m_Declaration;  
-#elif DIRECT3D9
-  TArray<D3DVERTEXELEMENT9> m_Declaration;  
-  LPDIRECT3DVERTEXDECLARATION9 m_pDeclaration;
-#endif
-  DWORD m_Handle;
-};
-
-
-#endif
-
-#if defined (DIRECT3D8) || defined (DIRECT3D9)
-#define MAX_DYNVBS 8
-template < class VertexType > class DynamicVB;
-union UDynamicVB
-{
-  DynamicVB <Vec3d>                                   *VBPtr_0;
-  DynamicVB <struct_VERTEX_FORMAT_P3F>                *VBPtr_1;
-  DynamicVB <struct_VERTEX_FORMAT_P3F_COL4UB>         *VBPtr_2;
-  DynamicVB <struct_VERTEX_FORMAT_P3F_TEX2F>          *VBPtr_3;
-  DynamicVB <struct_VERTEX_FORMAT_P3F_COL4UB_TEX2F>   *VBPtr_4;
-  DynamicVB <struct_VERTEX_FORMAT_TRP3F_COL4UB_TEX2F> *VBPtr_5;
-  DynamicVB <struct_VERTEX_FORMAT_P3F_COL4UB_COL4UB>  *VBPtr_6;
-  DynamicVB <struct_VERTEX_FORMAT_P3F_N>              *VBPtr_7;
-  DynamicVB <struct_VERTEX_FORMAT_P3F_N_COL4UB>       *VBPtr_8;
-  DynamicVB <struct_VERTEX_FORMAT_P3F_N_TEX2F>        *VBPtr_9;
-  DynamicVB <struct_VERTEX_FORMAT_P3F_N_COL4UB_TEX2F> *VBPtr_10;
-  DynamicVB <SPipTangents>                            *VBPtr_11;
-  DynamicVB <struct_VERTEX_FORMAT_TEX2F>              *VBPtr_12;
-  DynamicVB <struct_VERTEX_FORMAT_P3F_COL4UB_TEX2F_TEX2F> *VBPtr_13;
-};
-struct SVertexDeclaration
-{
-  int StreamMask;
-  int VertFormat;
-  int InstMask;
-  TArray<D3DVERTEXELEMENT9> m_Declaration;  
-  LPDIRECT3DVERTEXDECLARATION9 m_pDeclaration;
-};
-#endif
-
 struct SProfInfo
 {
   int NumPolys;
@@ -704,15 +653,6 @@ struct SRenderPipeline
   Vec3d m_LastWaterPosUpdate;
   float m_fLastWaterUpdate;
 
-#if defined (DIRECT3D8) || defined (DIRECT3D9)
-  UDynamicVB m_VBs[MAX_DYNVBS];
-  DynamicIB <ushort> *m_IndexBuf;
-  UDynamicVB m_MergedStreams[3];
-  int m_nStreamOffset[3];
-  SD3DFixedVShader m_D3DFixedPipeline[8][VERTEX_FORMAT_NUMS]; 
-  DynamicVB <vec4_t> *m_VB_Inst;
-  TArray<SVertexDeclaration *>m_CustomVD;
-#endif
   ushort *m_RendIndices;        
   ushort *m_SysRendIndices;        
   int m_CurVB;

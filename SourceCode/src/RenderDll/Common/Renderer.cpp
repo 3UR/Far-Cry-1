@@ -938,17 +938,17 @@ CRenderer::CRenderer()
   CV_r_glossdefault  = iConsole->CreateVariable("r_GlossDefault", "Defaults/gloss",NULL,
     "Name of default gloss map.\n"
     "Usage: r_GlossDefault filename\n"
-    "The texture 'defaults/gloss' is used by default. If you don’t specify a gloss map\n"
+    "The texture 'defaults/gloss' is used by default. If you donï¿½t specify a gloss map\n"
     "this is the texture that will be used.");
   CV_r_detaildefault  = iConsole->CreateVariable("r_DetailDefault", "Textures/Detail/rock",NULL,
     "Name of default detail texture.\n"
     "Usage: r_DetailDefault filename\n"
-    "The texture 'Textures/Detail/rock' is used by default. If you don’t\n"
+    "The texture 'Textures/Detail/rock' is used by default. If you donï¿½t\n"
     "specify a detail texture, this is the texture that will be used.");
   CV_r_opacitydefault  = iConsole->CreateVariable("r_OpacityDefault", "Textures/white",NULL,
     "Name of default opacity mask.\n"
     "Usage: r_OpacityDefault filename\n"
-    "The texture 'Textures/white' is used by default. If you don’t\n"
+    "The texture 'Textures/white' is used by default. If you donï¿½t\n"
     "specify an opacity mask, this is the mask that will be used.");
 
   iConsole->Register("r_DetailTextures", &CV_r_detailtextures, 1, VF_DUMPTODISK,
@@ -1096,7 +1096,7 @@ CRenderer::CRenderer()
 
   iConsole->Register("r_DisplayInfo", &CV_r_DisplayInfo, 0);
   iConsole->Register("r_Log", &CV_r_log, 0, 0,
-    "Logs rendering information to Direct3DLog.txt.\n"
+    "Logs rendering information to Log.txt.\n"
     "Usage: r_Log [0/1/2/3/4]\n"
     " 1: Logs a list of all shaders without profile info.\n"
     " 2: Log contains a list of all shaders with profile info.\n"

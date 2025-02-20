@@ -193,10 +193,6 @@ bool CRETriMeshShadow::mfCheckUpdate(int nVertFormat, int Flags)
 
   fakeLight.m_vObjectSpacePos = Vec3d(0,0,0);
 
-#ifdef DIRECT3D8
-  assert(0); // not tested, what this line do?
-  gRenDev->m_RP.m_CurD3DVFormat = pSVInfo->pVB->m_pSecVertBuffer->m_vertexformat + 16;
-#endif
   return true;
 }
 

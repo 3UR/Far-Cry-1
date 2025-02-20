@@ -19,8 +19,6 @@ public:
 #if defined(WIN64) || defined(LINUX64)
 	uint m_nOcclusionID2; // this is the safety dummy value to make the occlusion id extendable to 64-bit
 #endif
-#else
-  UINT_PTR m_nOcclusionID; // this will carry a pointer LPDIRECT3DQUERY9, so it needs to be 64-bit on WIN64 
 #endif
 		
 

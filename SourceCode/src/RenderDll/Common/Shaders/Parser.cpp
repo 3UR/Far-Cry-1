@@ -316,17 +316,7 @@ static void fxAddMacro(char *Name, char *Macro)
 
 void fxParserInit(void)
 {
-#if defined (DIRECT3D8) || defined (DIRECT3D9)
-  fxAddMacro("D3D", NULL);
-  fxAddMacro("DIRECT3D", NULL);
-#if defined (DIRECT3D8)
-  fxAddMacro("DIRECT3D8", NULL);
-  fxAddMacro("D3D8", NULL);
-#elif defined (DIRECT3D9)
-  fxAddMacro("DIRECT3D9", NULL);
-  fxAddMacro("D3D9", NULL);
-#endif
-#elif OPENGL
+#if defined(OPENGL)
   fxAddMacro("OGL", NULL);
   fxAddMacro("OPENGL", NULL);
 #elif defined (XBOX)
