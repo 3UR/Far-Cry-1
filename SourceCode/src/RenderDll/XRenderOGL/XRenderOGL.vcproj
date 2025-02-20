@@ -1184,9 +1184,6 @@
 			</File>
 		</Filter>
 		<File
-			RelativePath="..\CrtOverrides.h">
-		</File>
-		<File
 			RelativePath="..\RenderPCH.cpp">
 			<FileConfiguration
 				Name="Release|Win32">
