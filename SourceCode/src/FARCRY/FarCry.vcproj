@@ -3,11 +3,7 @@
 	ProjectType="Visual C++"
 	Version="7.10"
 	Name="FarCry"
-	ProjectGUID="{371D7BDF-BD06-4CF1-A697-CE7CC57C107D}"
-	SccProjectName="Perforce Project"
-	SccAuxPath=""
-	SccLocalPath="."
-	SccProvider="MSSCCI:Perforce SCM">
+	ProjectGUID="{371D7BDF-BD06-4CF1-A697-CE7CC57C107D}">
 	<Platforms>
 		<Platform
 			Name="Win32"/>
